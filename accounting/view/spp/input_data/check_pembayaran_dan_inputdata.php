@@ -479,7 +479,7 @@
 
             <!-- </div> -->
 
-            <table id="tabelCariSiswaCheckPembayaran" class="table table-bordered table-hover">
+            <!-- <table id="tabelCariSiswaCheckPembayaran" class="table table-bordered table-hover">
                 <thead>
                   <tr>
                      <th width="5%">NO</th>
@@ -512,8 +512,176 @@
 
                 </tbody>
 
-            </table>
+            </table> -->
+
+            <?php  
+
+                $no = 1;
+
+                if ($code_accounting == 'accounting1') {
+                    
+                    // histori input data sd
+                    $queryGetAllDataHistori     = "SELECT * FROM input_data_sd";
+                    $execQueryGetAllDataHistori = mysqli_query($con, $queryGetAllDataHistori);
+
+                    $halamanAktif = 1;
+
+                    $jumlahData = 5;
+                    $totalData = mysqli_num_rows($execQueryGetAllDataHistori);
+
+                    $jumlahPagination = ceil($totalData / $jumlahData);
+
+                    $dataAwal = ($halamanAktif * $jumlahData) - $jumlahData;
+                    // echo $dataAwal . "<br>";
+                    $ambildata_perhalaman = mysqli_query($con, "SELECT * FROM input_data_sd LIMIT $dataAwal, $jumlahData  ");
+                    // print_r($ambildata_perhalaman->num_rows);
+
+                    $jumlahLink = 7;
+                    if ($halamanAktif > $jumlahLink) {
+                        $start_number = $halamanAktif - $jumlahLink;
+                    } else {
+                        $start_number = 1;
+                    }
+
+                    if ($halamanAktif < ($jumlahPagination - $jumlahLink)) {
+                        $end_number = $halamanAktif + $jumlahLink;
+                    } else {
+                        $end_number = $jumlahPagination;
+                    }
+
+
+                } else {
+
+                    // histori input data tk
+                    $queryGetAllDataHistori     = "SELECT * FROM input_data_tk";
+                    $execQueryGetAllDataHistori = mysqli_query($con, $queryGetAllDataHistori);
+
+                }
+
+            ?>
             
+            <div style="overflow-x: auto;">
+                
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                         <th style="text-align: center;"> ID </th>
+                         <th style="text-align: center;"> NIS </th>
+                         <th style="text-align: center;"> DATE </th>
+                         <th style="text-align: center;"> BULAN </th>
+                         <th style="text-align: center;"> KELAS </th>
+                         <th style="text-align: center;"> NAMA KELAS</th>
+                         <th style="text-align: center;"> NAMA </th>
+                         <th style="text-align: center;"> PANGGILAN </th>
+                         <th style="text-align: center;"> TRANSAKSI </th>
+                         <th style="text-align: center;"> SPP SET </th>
+                         <th style="text-align: center;"> PANGKAL SET </th>
+                         <th style="text-align: center;"> SPP  </th>
+                         <th style="text-align: center;"> KET SPP </th>
+                         <th style="text-align: center;"> KEGIATAN </th>
+                         <th style="text-align: center;"> KET KEGIATAN </th>
+                         <th style="text-align: center;"> BUKU </th>
+                         <th style="text-align: center;"> KET BUKU </th>
+                         <th style="text-align: center;"> SERAGAM </th>
+                         <th style="text-align: center;"> KET SERAGAM </th>
+                         <th style="text-align: center;"> REGISTRASI </th>
+                         <th style="text-align: center;"> KET REGISTRASI </th>
+                         <th style="text-align: center;"> LAIN </th>
+                         <th style="text-align: center;"> KET LAIN </th>
+                         <th style="text-align: center;"> DI INPUT OLEH </th>
+                         <th style="text-align: center;"> STAMP </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php foreach ($ambildata_perhalaman as $data) : ?>
+                            <tr>
+                                <td style="text-align: center;"> <?= $data['ID']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['NIS']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['DATE']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['BULAN']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['KELAS']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['NAMA_KELAS']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['NAMA']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['PANGGILAN']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['TRANSAKSI']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['SPP_SET']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['PANGKAL_SET']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['SPP']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['SPP_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['KEGIATAN']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['KEGIATAN_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['BUKU']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['BUKU_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['SERAGAM']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['SERAGAM_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['REGISTRASI']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['REGISTRASI_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['LAIN']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['LAIN_txt']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['INPUTER']; ?> </td>
+                                <td style="text-align: center;"> <?= $data['STAMP']; ?> </td>
+                            </tr>
+                        <?php endforeach; ?>
+
+                        <!-- <tr>
+                            <td style="text-align: center;"> 1 </td>
+                            <td style="text-align: center;"><a style="cursor:pointer;"> NISWA </a> </td>
+                            <td style="text-align: center;"> lorem </td>
+                            <td style="text-align: center;"> ipsum </td>
+                            <td style="text-align: center;"> test </td>
+                            <td style="text-align: center;"> lorem ipsum </td>
+                        </tr>
+
+                        <tr>
+                            <td style="text-align: center;"> 2 </td>
+                            <td style="text-align: center;"><a style="cursor:pointer;"> GATHAN </a> </td>
+                            <td style="text-align: center;"> Bekasi </td>
+                            <td style="text-align: center;"> 16 Desember 2002 </td>
+                            <td style="text-align: center;"> Trisakti </td>
+                            <td style="text-align: center;"> English </td>
+                        </tr> -->
+
+                    </tbody>
+
+                </table>
+
+                <?php if ($halamanAktif > 1): ?>
+
+                    <a href="check_pembayaran_dan_inputdata.php?nextPage=<?= $halamanAktif - 1; ?>">
+                        &laquo;
+                    </a>
+
+                <?php endif; ?>
+
+                <?php for ($i = $start_number; $i <= $end_number; $i++): ?>
+
+                    <?php if ($jumlahPagination == 1): ?>
+                        
+                    <?php elseif ($halamanAktif == $i): ?>
+                        <a href="berhasil_login.php?nextPage=<?= $halamanAktif - 1; ?>&page=<?= $i; ?>" style="color: red; font-weight: bold; font-size: 19px;">
+                            <?= $i; ?>
+                        </a>
+                    <?php else: ?>
+                        <a href="berhasil_login.php?page=<?= $i; ?>">
+                            <?= $i; ?>
+                        </a>
+                    <?php endif; ?>
+
+                <?php endfor; ?>
+
+                <?php if ($halamanAktif < $jumlahPagination): ?>
+                    
+                    <a href="berhasil_login.php?nextPage=<?= $halamanAktif + 1; ?>">
+                        next
+                        &raquo;
+                    </a>
+
+                <?php endif; ?>
+
+            </div>
+
         </div>
     </form>
     

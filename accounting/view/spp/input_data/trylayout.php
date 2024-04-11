@@ -215,6 +215,41 @@
 
             <hr class="new1" />
 
+            <table id="example1" class="table table-bordered table-hover">
+                <thead>
+                  <tr>
+                     <th width="5%">NO</th>
+                     <th style="text-align: center;">Nama</th>
+                     <th style="text-align: center;">Juz</th>
+                     <th style="text-align: center;">Bagian</th>
+                     <th style="text-align: center;">Tgl Naik</th>
+                     <th style="text-align: center;"> Jml Hari </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td style="text-align: center;"> 1 </td>
+                        <td style="text-align: center;"><a style="cursor:pointer;"> NISWA </a> </td>
+                        <td style="text-align: center;"> lorem </td>
+                        <td style="text-align: center;"> ipsum </td>
+                        <td style="text-align: center;"> test </td>
+                        <td style="text-align: center;"> lorem ipsum </td>
+                    </tr>
+
+                    <tr>
+                        <td style="text-align: center;"> 2 </td>
+                        <td style="text-align: center;"><a style="cursor:pointer;"> GATHAN </a> </td>
+                        <td style="text-align: center;"> Bekasi </td>
+                        <td style="text-align: center;"> 16 Desember 2002 </td>
+                        <td style="text-align: center;"> Trisakti </td>
+                        <td style="text-align: center;"> English </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
             <?php  
 
                 $no = 1;
@@ -237,11 +272,10 @@
 
             <?php if ($code_accounting == 'accounting1'): ?>
                 
-                <div style="overflow-x:auto;">
-                    <table id="example1" class="table table-bordered table-hover">
+                    <!-- <table id="example1" class="table table-bordered table-hover">
                         <thead>
                           <tr>
-                             <th style="text-align: center;"> ID </th>
+                             <th style="text-align: center;"> IDw </th>
                              <th style="text-align: center;"> NIS </th>
                              <th style="text-align: center;"> DATE </th>
                              <th style="text-align: center;"> BULAN </th>
@@ -304,12 +338,11 @@
 
                         </tbody>
 
-                    </table>
-                </div>
+                    </table> -->
 
             <?php else: ?>
 
-                <div style="overflow-x:auto;">
+                <!-- <div style="overflow-x:auto;">
                     <table id="example1" class="table table-bordered table-hover">
                         <thead>
                           <tr>
@@ -375,7 +408,7 @@
                         </tbody>
 
                     </table>
-                </div>
+                </div> -->
 
             <?php endif ?>
 

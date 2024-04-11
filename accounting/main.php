@@ -413,7 +413,7 @@ oncontextmenu="return false">
               <li class="user-footer">
                 <div class="pull-right">
                   <a href="<?php echo $basead; ?>a-control/<?php echo md5('logout'); ?>/access" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i> Ganti Password </a>
-                  <a href="<?php echo $basead; ?>a-control/<?php echo md5('logout'); ?>/access" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-off"></i> Sign out</a>
+                  <a href="<?php echo $baseac; ?>a-control/<?php echo md5('logout'); ?>/access" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-off"></i> Sign out</a>
                 </div>
               </li>
             </ul>
@@ -609,7 +609,9 @@ oncontextmenu="return false">
 <!-- <script src="<?php echo $base; ?>theme/plugins/select2/select2.full.min.js"></script> -->
 <script>
   $(function () {
-    $("#example1").DataTable();
+    $("#example1").DataTable({
+      "paging": false
+    });
     $('#example2').DataTable({
       "paging": false,
       "lengthChange": true,

@@ -14,7 +14,7 @@ $con=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
 ($GLOBALS["___mysqli_ston"] = mysqli_connect($dbhost, $dbuser, $dbpass));mysqli_select_db($GLOBALS["___mysqli_ston"], $dbname);
 /* css.plugin.hancon <?php echo $base; ?> */
 /* $base='https://apps.aiis.sch.id/'; */
-$base='http://localhost/apps/';
+$base='http://localhost/spp/';
 // $base='http://192.168.0.163/apps/';
 /* control(link.redirect) <?php echo $basecon; ?> */
 $basead='http://localhost/spp/admin/';
